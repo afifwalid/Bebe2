@@ -1,136 +1,272 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وجبات الرضع</title>
+    <title>وجبات بروتينية متنوعة للرضع</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: right;
-            direction: rtl;
+            font-family: "Cairo", Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            text-align: center;
         }
-        .header {
-            background-color: #6AB187;
+        header {
+            background-color: #4CAF50;
             color: white;
             padding: 15px;
-            text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
-        .recipe-container {
-            padding: 20px;
+        section {
             margin: 20px auto;
-            max-width: 800px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        .recipe-container h2 {
-            color: #6AB187;
-        }
-        .details {
+        select, button {
+            width: 100%;
+            padding: 10px;
             margin: 10px 0;
             font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
-        .steps {
-            list-style-type: decimal;
-            margin: 10px 0;
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        h3 {
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+        ul {
+            text-align: left;
             padding: 0 20px;
         }
-        .footer {
-            text-align: center;
+        footer {
             margin-top: 20px;
             font-size: 14px;
             color: #777;
         }
-        .section-title {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin: 20px 0 10px;
-            border-radius: 5px;
-            font-size: 20px;
-            color: #6AB187;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
-    <div class="header">وجبات صحية لطفلك</div>
+    <header>برنامج وجبات بروتينية للرضع</header>
+    <section>
+        <h2>اختيار الفئة العمرية</h2>
+        <select id="ageGroup" onchange="showMeals()">
+            <option value="">-- اختر عمر طفلك --</option>
+            <option value="6-8">6-8 أشهر</option>
+            <option value="9-11">9-11 شهرًا</option>
+            <option value="12+">12 شهرًا فأكثر</option>
+        </select>
+        <div id="mealsList" class="output"></div>
+        <div id="mealDetails" class="output"></div>
+    </section>
 
-    <!-- قسم الفطور -->
-    <div class="section-title">الفطور</div>
-    <div class="recipe-container">
-        <h2>مهروس الموز مع الشوفان</h2>
-        <div class="details"><strong>مدة التحضير:</strong> 5 دقائق</div>
-        <div class="details"><strong>مدة الطهي:</strong> بدون طهي</div>
-        <div class="details"><strong>نوع الطهي:</strong> لا يحتاج للطهي</div>
-        <h3>المكونات:</h3>
-        <ul>
-            <li>نصف موزة مهروسة</li>
-            <li>ملعقتان صغيرتان من الشوفان المطحون</li>
-            <li>ملعقتان كبيرتان من الحليب (حسب الحاجة)</li>
-        </ul>
-        <h3>طريقة التحضير:</h3>
-        <ol class="steps">
-            <li>اهرسي الموز جيدًا حتى يصبح ناعمًا.</li>
-            <li>أضيفي الشوفان المطحون واخلطي جيدًا.</li>
-            <li>أضيفي الحليب ببطء حتى تحصلي على قوام مناسب.</li>
-        </ol>
-        <h3>طريقة التقديم:</h3>
-        <p>قدمي الخليط في وعاء صغير لطفلك، ويمكنك إضافة القليل من القرفة لتحسين الطعم إذا رغبتِ.</p>
-    </div>
+    <footer>بالصحة والهناء لطفلك!</footer>
 
-    <!-- قسم الغداء -->
-    <div class="section-title">الغداء</div>
-    <div class="recipe-container">
-        <h2>شوربة العدس بالخضروات</h2>
-        <div class="details"><strong>مدة التحضير:</strong> 10 دقائق</div>
-        <div class="details"><strong>مدة الطهي:</strong> 20 دقيقة</div>
-        <div class="details"><strong>نوع الطهي:</strong> سلق</div>
-        <h3>المكونات:</h3>
-        <ul>
-            <li>ربع كوب عدس أحمر</li>
-            <li>حبة صغيرة جزر مقطعة</li>
-            <li>حبة بطاطا صغيرة مقطعة</li>
-            <li>كوب ماء</li>
-        </ul>
-        <h3>طريقة التحضير:</h3>
-        <ol class="steps">
-            <li>اغسلي العدس جيداً بالماء البارد.</li>
-            <li>ضعي العدس مع الجزر والبطاطا والماء في قدر على نار متوسطة.</li>
-            <li>اتركي المزيج يغلي، ثم خففي النار واتركيه حتى ينضج.</li>
-            <li>اخلطي المكونات باستخدام الخلاط اليدوي حتى تصبح ناعمة.</li>
-        </ol>
-        <h3>طريقة التقديم:</h3>
-        <p>قدمي الشوربة لطفلك في وعاء صغير بعد أن تبرد قليلاً، مع رشة صغيرة من الكمون لتحسين الطعم.</p>
-    </div>
+    <script>
+        const meals = {
+            "6-8": [
+                {
+                    name: "مهروس الدجاج والجزر",
+                    ingredients: ["صدر دجاج صغير", "جزر مسلوق"],
+                    preparation: {
+                        steps: ["اسلق الدجاج والجزر حتى يصبحا طريين.", "اهرس المكونات جيدًا."],
+                        cookingTime: "20 دقيقة",
+                        serving: "يُقدم دافئًا في طبق صغير مناسب للأطفال."
+                    }
+                },
+                {
+                    name: "عدس مهروس مع البطاطس",
+                    ingredients: ["عدس", "بطاطس مسلوقة"],
+                    preparation: {
+                        steps: ["اطبخ العدس مع البطاطس حتى ينضجا.", "اهرسهما معًا حتى يصبح القوام ناعمًا."],
+                        cookingTime: "25 دقيقة",
+                        serving: "يُقدم في وعاء صغير مع ملعقة بلاستيكية."
+                    }
+                },
+                {
+                    name: "مهروس السبانخ والبيض",
+                    ingredients: ["سبانخ مطبوخة", "صفار بيضة مسلوق"],
+                    preparation: {
+                        steps: ["اسلق السبانخ حتى تنضج.", "اهرس السبانخ وصفار البيضة مع القليل من الماء."],
+                        cookingTime: "15 دقيقة",
+                        serving: "يُقدم مهروسًا دافئًا."
+                    }
+                },
+                {
+                    name: "كوسا مطهية مع الدجاج",
+                    ingredients: ["دجاج", "كوسا مقطعة"],
+                    preparation: {
+                        steps: ["اطبخ الكوسا والدجاج في قليل من الماء.", "اهرس المكونات جيدًا."],
+                        cookingTime: "20 دقيقة",
+                        serving: "يُقدم دافئًا مع القليل من الأعشاب الطازجة."
+                    }
+                },
+                {
+                    name: "سمك أبيض مهروس مع البطاطا الحلوة",
+                    ingredients: ["سمك أبيض", "بطاطا حلوة"],
+                    preparation: {
+                        steps: ["اسلق البطاطا الحلوة حتى تصبح طرية.", "أضف السمك الأبيض واطبخه حتى ينضج.", "اهرس المكونات معًا."],
+                        cookingTime: "30 دقيقة",
+                        serving: "يُقدم في طبق صغير مع رشة زيت زيتون."
+                    }
+                }
+            ],
+            "9-11": [
+                {
+                    name: "شوربة الدجاج بالكوسا",
+                    ingredients: ["دجاج", "كوسا", "شوربة خفيفة"],
+                    preparation: {
+                        steps: ["اطبخ الدجاج والكوسا في الشوربة.", "اطحن المكونات بالخلاط حتى تنعم."],
+                        cookingTime: "30 دقيقة",
+                        serving: "تُقدم الشوربة دافئة في كوب صغير."
+                    }
+                },
+                {
+                    name: "أرز بالدجاج والخضروات",
+                    ingredients: ["أرز مطهو", "دجاج مقطع", "جزر مهروس"],
+                    preparation: {
+                        steps: ["اطبخ الأرز والدجاج مع الجزر.", "امزج المكونات معًا."],
+                        cookingTime: "25 دقيقة",
+                        serving: "يُقدم في وعاء صغير."
+                    }
+                },
+                {
+                    name: "كبدة دجاج مشوية مع الخضروات",
+                    ingredients: ["كبدة دجاج", "بطاطس", "بروكلي"],
+                    preparation: {
+                        steps: ["اشوِ الكبدة مع البطاطس والبروكلي.", "اهرس المكونات معًا."],
+                        cookingTime: "35 دقيقة",
+                        serving: "تُقدم مع رشة خفيفة من الملح."
+                    }
+                },
+                {
+                    name: "لحم مفروم مع القرع",
+                    ingredients: ["لحم مفروم", "قرع مسلوق"],
+                    preparation: {
+                        steps: ["اطبخ اللحم والقرع حتى ينضجا.", "اهرسهما معًا حتى يصبح القوام ناعمًا."],
+                        cookingTime: "30 دقيقة",
+                        serving: "يُقدم في طبق دافئ."
+                    }
+                },
+                {
+                    name: "بيض مطهو مع الكوسا",
+                    ingredients: ["بيض", "كوسا مطبوخة"],
+                    preparation: {
+                        steps: ["اخفق البيض.", "اطبخ الكوسا مع البيض حتى ينضج."],
+                        cookingTime: "15 دقيقة",
+                        serving: "يُقدم طازجًا."
+                    }
+                }
+            ],
+            "12+": [
+                {
+                    name: "كرات اللحم بالخضروات",
+                    ingredients: ["لحم مفروم", "بطاطس", "كوسا"],
+                    preparation: {
+                        steps: ["شكل كرات صغيرة من اللحم.", "اطبخها بالبخار مع البطاطس والكوسا حتى تنضج."],
+                        cookingTime: "40 دقيقة",
+                        serving: "تُقدم الكرات مع صوص خفيف."
+                    }
+                },
+                {
+                    name: "أرز بني مع السمك المشوي",
+                    ingredients: ["أرز بني", "سمك مشوي"],
+                    preparation: {
+                        steps: ["اطبخ الأرز البني.", "اشوِ السمك وقدمه مع الأرز."],
+                        cookingTime: "35 دقيقة",
+                        serving: "يُقدم مع رشة ليمون."
+                    }
+                },
+                {
+                    name: "بيض أومليت بالخضروات",
+                    ingredients: ["بيض", "جزر مفروم", "بصل"],
+                    preparation: {
+                        steps: ["اخفق البيض مع الجزر والبصل.", "اطبخ الخليط في مقلاة حتى ينضج."],
+                        cookingTime: "20 دقيقة",
+                        serving: "يُقدم مقطعًا شرائح."
+                    }
+                },
+                {
+                    name: "لحم مفروم مع العدس",
+                    ingredients: ["عدس", "لحم مفروم"],
+                    preparation: {
+                        steps: ["اطبخ العدس مع اللحم حتى ينضجا.", "اهرس المكونات معًا."],
+                        cookingTime: "30 دقيقة",
+                        serving: "يُقدم دافئًا."
+                    }
+                },
+                {
+                    name: "مكرونة بالدجاج المهروس",
+                    ingredients: ["مكرونة صغيرة", "دجاج مفروم"],
+                    preparation: {
+                        steps: ["اسلق المكرونة حتى تنضج.", "اطبخ الدجاج واهرسه.", "اخلط المكونات معًا."],
+                        cookingTime: "25 دقيقة",
+                        serving: "يُقدم مع رشة جبنة مبشورة."
+                    }
+                }
+            ]
+        };
 
-    <!-- قسم العشاء -->
-    <div class="section-title">العشاء</div>
-    <div class="recipe-container">
-        <h2>مهروس البطاطا بالجبن</h2>
-        <div class="details"><strong>مدة التحضير:</strong> 10 دقائق</div>
-        <div class="details"><strong>مدة الطهي:</strong> 15 دقيقة</div>
-        <div class="details"><strong>نوع الطهي:</strong> غلي</div>
-        <h3>المكونات:</h3>
-        <ul>
-            <li>حبة بطاطا صغيرة</li>
-            <li>ملعقتان صغيرتان من الجبن الطري</li>
-            <li>ملعقتان صغيرتان من الحليب</li>
-        </ul>
-        <h3>طريقة التحضير:</h3>
-        <ol class="steps">
-            <li>اسلقي البطاطا حتى تصبح طرية تمامًا.</li>
-            <li>اهرسي البطاطا جيدًا باستخدام شوكة.</li>
-            <li>أضيفي الجبن والحليب واخلطي حتى يصبح الخليط ناعمًا.</li>
-        </ol>
-        <h3>طريقة التقديم:</h3>
-        <p>قدمي المهروس لطفلك في وعاء صغير، ويمكنك إضافة القليل من البقدونس المفروم للتزيين.</p>
-    </div>
+        function showMeals() {
+            const ageGroup = document.getElementById("ageGroup").value;
+            const mealsList = document.getElementById("mealsList");
+            const mealDetails = document.getElementById("mealDetails");
+            mealsList.innerHTML = "";
+            mealDetails.innerHTML = "";
 
-    <div class="footer">بالصحة والهناء لطفلك!</div>
+            if (ageGroup && meals[ageGroup]) {
+                let listHtml = "<h3>اختر وجبة:</h3><select id='mealSelector' onchange='showMealDetails()'>";
+                listHtml += "<option value=''>-- اختر وجبة --</option>";
+                meals[ageGroup].forEach((meal, index) => {
+                    listHtml += `<option value="${index}">${meal.name}</option>`;
+                });
+                listHtml += "</select>";
+                mealsList.innerHTML = listHtml;
+            } else {
+                mealsList.innerHTML = "<p>يرجى اختيار عمر طفلك لعرض الوجبات.</p>";
+            }
+        }
+
+        function showMealDetails() {
+            const ageGroup = document.getElementById("ageGroup").value;
+            const mealSelector = document.getElementById("mealSelector");
+            const selectedMealIndex = mealSelector.value;
+            const mealDetails = document.getElementById("mealDetails");
+
+            if (selectedMealIndex && meals[ageGroup]) {
+                const meal = meals[ageGroup][selectedMealIndex];
+                mealDetails.innerHTML = `
+                    <h3>${meal.name}</h3>
+                    <p><strong>المكونات:</strong></p>
+                    <ul>${meal.ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}</ul>
+                    <p><strong>طريقة التحضير:</strong></p>
+                    <ul>${meal.preparation.steps.map(step => `<li>${step}</li>`).join("")}</ul>
+                    <p><strong>مدة الطهي:</strong> ${meal.preparation.cookingTime}</p>
+                    <p><strong>طريقة التقديم:</strong> ${meal.preparation.serving}</p>
+                    <p style="color: green;">بالصحة والهناء لطفلك!</p>
+                `;
+            } else {
+                mealDetails.innerHTML = "";
+            }
+        }
+    </script>
 </body>
 </html>
