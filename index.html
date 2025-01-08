@@ -28,7 +28,7 @@
             max-width: 600px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        select, button {
+        select, button, textarea, input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -66,6 +66,8 @@
 </head>
 <body>
     <header>برنامج وجبات بروتينية للرضع</header>
+
+    <!-- القسم الرئيسي لاختيار الوجبات -->
     <section>
         <h2>اختيار الفئة العمرية</h2>
         <select id="ageGroup" onchange="showMeals()">
@@ -78,6 +80,22 @@
         <div id="mealDetails" class="output"></div>
     </section>
 
+    <!-- قسم اسأل الطبيب -->
+    <section>
+        <h2>اسأل الطبيب</h2>
+        <form action="https://formspree.io/f/xpwwoevk" method="POST">
+            <!-- حقل السؤال -->
+            <textarea name="question" placeholder="اكتب سؤالك هنا..." rows="4" required></textarea>
+            
+            <!-- حقل البريد الإلكتروني -->
+            <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني لتلقي الرد" required>
+            
+            <!-- زر الإرسال -->
+            <button type="submit">إرسال السؤال</button>
+        </form>
+        <div style="margin-top: 20px; font-size: 14px; color: #777;">سيتم الرد عليك عبر البريد الإلكتروني.</div>
+    </section>
+    
     <footer>بالصحة والهناء لطفلك!</footer>
 
     <script>
